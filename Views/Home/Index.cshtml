@@ -1,0 +1,22 @@
+﻿@model List<Article>
+
+<h2 class="news-title">Latest News</h2>
+
+<div class="news-grid">
+    @for (int i = 0; i < Math.Min(Model.Count, 9); i++) // Show max 9 articles
+    {
+        var article = Model[i];
+        <div class="news-item">
+            <img src="@article.UrlToImage" alt="News Image">
+            <h3>@article.Title</h3>
+            <p>@article.Description</p>
+            <p><strong>Source:</strong> @article.Source.Name</p>
+            <p><small>Published: @article.PublishedAt</small></p>
+            <a href="@article.Url" target="_blank">Read more</a>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script src="~/js/news.js"></script>
+}

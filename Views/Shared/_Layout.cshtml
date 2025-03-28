@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Newsclone</title>
+    <link href="~/css/output.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+    <!-- Navbar -->
+    <header class="bg-gray-900 text-white shadow-md">
+        <nav class="container mx-auto flex items-center justify-between py-4 px-6">
+
+            <div>
+                <a class="text-2xl font-bold tracking-wide hover:text-gray-400 transition" asp-area="" asp-controller="Home" asp-action="Index">Tofan Express</a>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a class="hover:text-gray-400 transition" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                <a class="hover:text-gray-400 transition" asp-area="" asp-controller="Home" asp-action="Buss">Business News</a>
+                <a class="hover:text-gray-400 transition" asp-area="" asp-controller="Home" asp-action="Tech">Tech Crunch</a>
+                <a class="hover:text-gray-400 transition" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+            <div id="google_translate_element"></div>
+            <script type="text/javascript">
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+                }
+            </script>
+            <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+            <button class="md:hidden text-xl focus:outline-none">&#9776;</button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-6 py-8">
+        <main role="main" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Main Article Section -->
+            <section class="md:col-span-2 bg-white p-6 rounded-lg shadow">
+                @RenderBody()
+            </section>
+
+            <!-- Sidebar -->
+            <aside class="bg-white p-6 rounded-lg shadow">
+                <h2 class="text-lg font-semibold border-b pb-2 mb-4">Latest News</h2>
+                <ul class="space-y-3">
+                    <li><a href="#" class="text-blue-600 hover:underline">Breaking: Major event happening now</a></li>
+                    <li><a href="#" class="text-blue-600 hover:underline">Technology: AI advancements in 2025</a></li>
+                    <li><a href="#" class="text-blue-600 hover:underline">Sports: Latest match results</a></li>
+                </ul>
+            </aside>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 text-center py-4 mt-10">
+        &copy; 2025 - Newsclone - <a asp-area="" asp-controller="Home" asp-action="Privacy" class="hover:text-white">Privacy</a>
+    </footer>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
